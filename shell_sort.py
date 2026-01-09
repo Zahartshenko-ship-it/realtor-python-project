@@ -1,5 +1,3 @@
-# shell_sort.py
-
 def shell_sort(arr, key_func):
     n = len(arr)
     gap = n // 2
