@@ -1,0 +1,21 @@
+from shell_sort import shell_sort
+
+
+def report_all_by_rooms_and_price(apartments):
+    def key(a):
+        return (-a.rooms, a.price)
+    return shell_sort(apartments.copy(), key)
+
+
+def report_by_room_count(apartments, room_count):
+    filtered = [a for a in apartments if a.rooms == room_count]
+    def key(a):
+        return (a.floor, a.total_floors, -a.price)
+    return shell_sort(filtered.copy(), key)
+
+
+def report_by_price_range(apartments, min_price, max_price):
+    filtered = [a for a in apartments if min_price <= a.price <= max_price]
+    def key(a):
+        return (-a.price, a.total_area)
+    return shell_sort(filtered.copy(), key)
